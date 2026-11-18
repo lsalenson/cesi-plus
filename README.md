@@ -10,6 +10,7 @@ Extension Chrome qui refait l'interface de l'ENT CESI (`ent.cesi.fr`), dans le s
 - **Connexion simplifiée** : l'extension retient ton identifiant (jamais ton mot de passe) et valide seule l'écran « Votre identifiant ». La page de connexion Moodle passe directement par l'ENT.
 - **Recherche rapide** avec `⌘K` / `Ctrl K` : pages, cours Moodle, outils.
 - **Mode sombre**, emploi du temps coloré par matière, réglages dans la popup de l'extension.
+- **Moodle assorti** (`moodle.cesi.fr`) : même style (police Fredoka, logo « cesi● », barre en pastilles, cartes de cours colorées, sections en tuiles, icônes d'activités dans des ronds de couleur). Moodle reste en mode clair, car le contenu des cours contient des couleurs choisies par les enseignants.
 
 ## Installation
 
@@ -31,6 +32,7 @@ Après une mise à jour du code, clique sur la flèche circulaire de la carte CE
 | `cesi-plus/content.js` | Barre de navigation, accueil, recherche ⌘K |
 | `cesi-plus/background.js` | Récupère les cours et rendus Moodle |
 | `cesi-plus/sso.js`, `cesi-plus/login.css` | Connexion simplifiée |
+| `cesi-plus/moodle.css` | Thème de Moodle |
 | `cesi-plus/moodle-login.js` | Redirige la connexion Moodle vers l'ENT |
 | `cesi-plus/popup.html`, `cesi-plus/popup.js` | Réglages |
 
