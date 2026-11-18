@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "CESI+ — ENT repensé",
+  "short_name": "CESI+",
+  "version": "3.0.0",
+  "description": "L'ENT CESI repensé : nouvelle interface, tes cours et rendus Moodle sur l'accueil, connexion en un clic, mode sombre et recherche rapide (⌘K).",
+  "permissions": ["storage"],
+  "host_permissions": ["https://moodle.cesi.fr/*", "https://wayf.cesi.fr/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["fonts/fredoka.woff2"],
+      "matches": ["https://ent.cesi.fr/*", "https://wayf.cesi.fr/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "CESI+",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://ent.cesi.fr/*"],
+      "css": ["theme.css"],
+      "js": ["boot.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://ent.cesi.fr/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://wayf.cesi.fr/*"],
+      "js": ["boot.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://ent.cesi.fr/identification/*", "https://wayf.cesi.fr/*"],
+      "css": ["login.css"],
+      "js": ["sso.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://moodle.cesi.fr/login/index.php*"],
+      "js": ["moodle-login.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

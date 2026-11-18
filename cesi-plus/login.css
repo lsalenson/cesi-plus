@@ -1,0 +1,135 @@
+/* CESI+ — pages « Votre identifiant » (ENT et portail CAS de Moodle), style « Wiz. » */
+
+@font-face {
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("chrome-extension://__MSG_@@extension_id__/fonts/fredoka.woff2") format("woff2");
+}
+
+html.cx-on body#cas {
+  --cx-font: "Fredoka", ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cx-bounce: cubic-bezier(.34, 1.56, .64, 1);
+  --cx-ease: cubic-bezier(.2, .8, .2, 1);
+  --cx-yellow: #ffcf06;
+  --cx-charcoal: #232323;
+  --cx-stone: #e9e4d2;
+  --cx-cream: #fffce9;
+  --cx-coral: #ff6b4a;
+  --cx-lilac: #b69cff;
+  --cx-bg: #faf7ec;
+  --cx-surface: #ffffff;
+  --cx-surface-2: #f3efe0;
+  --cx-ink: #232323;
+  --cx-muted: #8f8a7b;
+  --cx-line: #e9e4d2;
+}
+html.cx-on[data-cx-theme="dark"] body#cas {
+  --cx-bg: #171716;
+  --cx-surface: #232323;
+  --cx-surface-2: #2c2b28;
+  --cx-ink: #fffce9;
+  --cx-line: #34332f;
+  color-scheme: dark;
+}
+
+@keyframes cx-login-in { from { opacity: 0; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
+@keyframes cx-login-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes cx-login-spin { to { transform: rotate(360deg); } }
+
+html.cx-on body#cas:has(.cx-login-top) {
+  min-height: 100vh; margin: 0 !important; padding: 0 !important;
+  background: var(--cx-bg) !important; color: var(--cx-ink) !important;
+  font: 400 16px/1.5 var(--cx-font) !important; -webkit-font-smoothing: antialiased;
+
+  * { box-sizing: border-box; font-family: var(--cx-font) !important; }
+
+  .cx-login-top { display: flex; align-items: center; justify-content: space-between; max-width: 1240px; height: 76px; margin: 0 auto; padding: 0 28px; }
+  .cx-login-brand { display: inline-flex; align-items: baseline; color: var(--cx-ink); font-size: 30px; font-weight: 700; letter-spacing: -.02em; }
+  .cx-login-dot { display: inline-block; width: .24em; height: .24em; margin-left: .05em; border-radius: 50%; background: var(--cx-yellow); }
+  .cx-login-label { padding: 6px 14px; border-radius: 999px; background: var(--cx-surface); box-shadow: 0 0 0 1.5px var(--cx-line); color: var(--cx-ink); font-size: 14px; font-weight: 500; }
+
+  #container { width: auto !important; max-width: none !important; margin: 0 !important; padding: 0 !important; background: transparent !important; box-shadow: none !important; }
+  .cas__contenu {
+    width: 100% !important; max-width: 520px !important; margin: 0 auto !important; padding: 8vh 24px 64px !important;
+    border: 0 !important; background: transparent !important; box-shadow: none !important;
+    animation: cx-login-in .5s var(--cx-ease) both;
+  }
+  header { display: none !important; }
+  .cas_contenu_body { width: auto !important; margin: 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; }
+
+  .cx-login-hello { position: relative; margin: 0 0 18px; padding: 30px 30px 34px; border-radius: 32px; background: var(--cx-yellow); color: var(--cx-charcoal); overflow: hidden; }
+  .cx-login-hello::after { content: ""; position: absolute; right: -50px; bottom: -70px; width: 200px; height: 200px; border-radius: 50%; background: color-mix(in srgb, var(--cx-cream) 45%, transparent); }
+  .cx-login-tag { display: inline-flex; height: 30px; align-items: center; padding: 0 13px; border-radius: 999px; background: var(--cx-charcoal); color: var(--cx-cream); font-size: 13px; font-weight: 600; transform: rotate(-4deg); }
+  .cx-login-title { position: relative; z-index: 1; margin: 26px 0 0; color: var(--cx-charcoal); font-size: clamp(54px, 9vw, 80px); font-weight: 700; line-height: .92; letter-spacing: -.035em; }
+  .cx-login-title .cx-login-dot { background: var(--cx-cream); }
+  .texteintroduction { margin: 0 0 18px !important; padding: 0 6px !important; background: transparent !important; color: var(--cx-muted) !important; font-size: 14.5px !important; line-height: 1.5 !important; }
+  .texteintroduction h3 { display: none !important; }
+
+  .appconnexion { width: auto !important; margin: 0 !important; padding: 26px !important; border: 0 !important; border-radius: 32px !important; background: var(--cx-surface) !important; box-shadow: 0 0 0 1.5px var(--cx-line) !important; }
+  .appconnexion h2 { display: none !important; }
+  .appconnexion form { margin: 0 !important; padding: 0 !important; }
+  .login { display: grid !important; gap: 12px !important; margin: 0 !important; padding: 0 !important; background: transparent !important; }
+  .login label { display: block !important; float: none !important; width: auto !important; margin: 0 0 0 6px !important; color: var(--cx-ink) !important; font-size: 15px !important; font-weight: 600 !important; text-transform: none !important; }
+  #login {
+    display: block !important; width: 100% !important; height: 56px !important; margin: 0 !important; padding: 0 22px !important;
+    border: 0 !important; border-radius: 999px !important; background: var(--cx-surface-2) !important; color: var(--cx-ink) !important;
+    box-shadow: inset 0 0 0 1.5px transparent !important; outline: none !important; font-size: 17px !important; font-weight: 500 !important;
+    transition: box-shadow .15s;
+  }
+  #login::placeholder { color: var(--cx-muted); }
+  #login:focus { box-shadow: inset 0 0 0 2px var(--cx-charcoal) !important; }
+  .login .submit {
+    display: flex !important; align-items: center; justify-content: center; float: none !important;
+    width: 100% !important; height: 56px !important; margin: 4px 0 0 !important; padding: 0 !important;
+    border: 0 !important; border-radius: 999px !important; background: var(--cx-charcoal) !important; color: var(--cx-cream) !important;
+    font-size: 17px !important; font-weight: 600 !important; text-decoration: none !important; text-transform: none !important;
+    cursor: pointer; transition: transform .2s var(--cx-bounce);
+  }
+  .login .submit:hover { transform: translateY(-2px) rotate(-1deg); }
+  .login .error { margin: 2px 0 0 6px !important; color: #e5484d !important; font-size: 14px !important; }
+
+  .serviceinfo { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 14px 0 0 !important; padding: 14px 20px !important; border-radius: 999px; background: var(--cx-lilac) !important; color: var(--cx-charcoal); }
+  .serviceinfo h2 { margin: 0 !important; color: var(--cx-charcoal) !important; font-size: 14px !important; font-weight: 500 !important; }
+  .serviceinfo p { display: flex; align-items: center; gap: 8px; margin: 0 !important; color: var(--cx-charcoal) !important; font-size: 14px; font-weight: 600; }
+  .serviceinfo img { height: 18px; width: auto; }
+
+  footer, .cas__bas-de-page { margin: 28px 0 0 !important; padding: 0 !important; border: 0 !important; background: transparent !important; }
+  .cas__bas-de-page ul { display: flex !important; flex-wrap: wrap; justify-content: center; gap: 18px; margin: 0 !important; padding: 0 !important; list-style: none !important; }
+  .cas__bas-de-page li { margin: 0 !important; padding: 0 !important; background: none !important; }
+  .cas__bas-de-page li::before, .cas__bas-de-page li::after { display: none !important; }
+  .cas__bas-de-page a { color: var(--cx-muted) !important; font-size: 14px !important; text-decoration: none !important; text-transform: none !important; }
+  .cas__bas-de-page a:hover { color: var(--cx-ink) !important; }
+
+  /* Connexion en un clic */
+  .appconnexion.cx-has-quick .login, .appconnexion.cx-has-quick form > *:not(.cx-quick) { display: none !important; }
+  .cx-quick { display: grid; gap: 14px; }
+  .cx-quick__who { display: flex; align-items: center; gap: 14px; padding: 10px 18px 10px 10px; border-radius: 999px; background: var(--cx-surface-2); }
+  .cx-quick__avatar { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--cx-yellow); color: var(--cx-charcoal); font-size: 17px; font-weight: 700; transform: rotate(-6deg); }
+  .cx-quick__who > span:last-child { min-width: 0; }
+  .cx-quick__who small { display: block; color: var(--cx-muted); font-size: 13px; font-weight: 500; }
+  .cx-quick__who b { display: block; overflow: hidden; color: var(--cx-ink); font-size: 16.5px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+  .cx-quick__go {
+    position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; gap: 10px;
+    height: 58px; border: 0; border-radius: 999px; background: var(--cx-charcoal); color: var(--cx-cream);
+    font-size: 18px; font-weight: 600; cursor: pointer; transition: transform .2s var(--cx-bounce);
+  }
+  .cx-quick__go > * { position: relative; z-index: 1; }
+  .cx-quick__go:hover { transform: translateY(-2px) rotate(-1deg); }
+  .cx-quick__go:active { transform: scale(.97); }
+  .cx-quick__go.is-auto::before { content: ""; position: absolute; inset: 0; z-index: 0; transform-origin: left; background: var(--cx-yellow); animation: cx-login-fill var(--cx-auto, .9s) linear both; }
+  .cx-quick__go.is-auto { color: var(--cx-charcoal); transition: color .3s; }
+  .cx-quick__arrow { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--cx-yellow); color: var(--cx-charcoal); font-size: 16px; }
+  .cx-quick__go.is-auto .cx-quick__arrow { background: var(--cx-charcoal); color: var(--cx-yellow); }
+  .cx-quick__go.is-loading .cx-quick__arrow { border: 2.5px solid currentColor; border-right-color: transparent; background: transparent; font-size: 0; animation: cx-login-spin .7s linear infinite; }
+  .cx-quick__go[disabled] { cursor: progress; }
+  .cx-quick__other { justify-self: center; padding: 6px 12px; border: 0; border-radius: 999px; background: transparent; color: var(--cx-muted); font-size: 14.5px; font-weight: 500; cursor: pointer; }
+  .cx-quick__other:hover { background: var(--cx-surface-2); color: var(--cx-ink); }
+
+  @media (max-width: 640px) {
+    .cx-login-top { padding: 0 18px; }
+    .cas__contenu { padding-top: 4vh !important; }
+    .appconnexion, .cx-login-hello { padding: 22px !important; border-radius: 28px !important; }
+  }
+}
